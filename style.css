@@ -1,0 +1,232 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+body{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+.wrapper{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0px 10px;
+}
+/*кнопки*/
+.buttonsContainer{
+    display: flex;
+}
+button{
+    margin: 10px 10px;
+    padding: 5px 10px;
+    border: #469e9e;
+    border-radius: 5px;
+    font: normal 20px sans-serif;
+    color: white;
+    background-color: #469e9e;
+    cursor: pointer;
+    transition: all 150ms ease-in;
+}
+button:hover{
+    transform: scale(1.05);
+}
+button:active {
+    transform: scale(0.95);
+    background-color: #99b0b0;
+}
+/*счетчики*/
+.countersContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font: normal 20px sans-serif;
+}
+.countersContainer div {
+    margin: 10px 20px;
+    width: 130px;
+}
+/*Размеры поля*/
+.sizeWrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10px;
+}
+.currentSize{
+    /*margin: 10px 0px;*/
+    font: normal 20px sans-serif;
+}
+.sizeContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.sizeContainer span{
+    margin: 10px 10px;
+    font: normal 17px sans-serif;
+}
+.spanNumber {
+    cursor: pointer;
+    text-decoration: underline;
+    color: #469e9e;
+}
+/*игровое поле*/
+.gameContainer{
+    position: relative;
+    background-color: #7d7d7d;
+}
+.gameCell,
+.emptyCell{
+    top: 0px;
+    left: 0px;
+    display: inline-block;
+    position: relative;
+    width: 69px;
+    height: 69px;
+    border: solid 1px #7d7d7d;
+    font: bold 40px sans-serif;
+    vertical-align: middle;
+    transition: all 200ms ease-in;
+}
+.gameCell{
+    background-color: white;
+    cursor: pointer;
+}
+.gameCell p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+.emptyCell{
+    background-color: #7d7d7d;
+}
+/*попап*/
+.congrPopContainer {
+    width: 100%;
+    min-height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    overflow: hidden;
+    position: fixed;
+    top: 0px;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.congrPopContent{
+    position: relative;
+    width: 250px;
+    padding: 40px 10px 10px 10px;
+    text-align: center;
+    font: bold 30px sans-serif;
+    line-height: 1.5;
+    background-color: white;
+    border-radius:5px;
+    box-shadow: 0px 0px 10px #000;
+}
+.congrPopContent ol {
+    margin-left: 40px;
+    text-align: left;
+    font: bold 20px sans-serif;
+}
+.congrPopCross{
+    position: absolute;
+    top: 0px;
+    right: 7px;
+    cursor: pointer;
+}
+@media all and (max-width: 1280px) {
+    .wrapper{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .buttonsContainer,
+    .countersContainer{
+        flex-direction: column;
+    }
+    .buttonsContainer{
+        margin-right: 10px;
+    }
+    .gameCell,
+    .emptyCell {
+        font: bold 35px sans-serif;
+    }
+    .sizeWrapper{width: 100%;}
+}
+@media all and (max-width: 940px) {
+    .countersContainer{
+        flex-direction: row;
+        font: normal 17px sans-serif;
+        order: 1;
+    }
+    .gameContainer{
+        transform: scale(0.8);
+    }
+    /*.sizeWrapper{
+        margin-top: -30px;
+    }*/
+    .currentSize{
+        font: normal 17px sans-serif;
+        margin: 0px 0px;
+    }
+    button{
+        font: normal 17px sans-serif;
+    }
+}
+@media all and (max-width: 768px) {
+    .wrapper{
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+    .gameContainer{
+        margin-top: -30px;
+    }
+    .buttonsContainer{
+        flex-direction: row;
+    }
+    .countersContainer{
+        order: 0;
+    }
+}
+@media all and (max-width: 560px) {
+    .gameContainer{
+        transform: scale(0.7);
+    }
+    .sizeWrapper{
+        width: 400px;
+    }
+    .buttonsContainer{
+        margin-right: 0px;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    button {
+        margin: 10px 2px;
+        padding: 5px 2px;
+    }
+}
+@media all and (max-width: 422px) {
+    .buttonsContainer,
+    .sizeWrapper{
+        max-width: 320px;
+    }
+    button{
+        margin: 5px;
+    }
+    .gameContainer {
+        margin-top: -30px;
+        transform: scale(0.5);
+    }
+} 
